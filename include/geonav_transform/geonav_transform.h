@@ -28,6 +28,7 @@ along with Foobar.  If not, see <http://www.gnu.org/licenses/>.
 #include <nav_msgs/Odometry.h>
 #include <sensor_msgs/Imu.h>
 #include <sensor_msgs/NavSatFix.h>
+#include <gps_common/GPSFix.h>
 
 #include <tf2/LinearMath/Transform.h>
 #include <tf2_ros/static_transform_broadcaster.h>
@@ -82,15 +83,10 @@ class GeonavTransform
                                  const ros::Time &transform_time);
 
 
-    //! @brief Callback for the geo nav odom data
+    //! @brief Callback for the gps fix data
     //! @param[in] msg The odometry message to process
     //!
-    void navOdomCallback(const nav_msgs::OdometryConstPtr& msg);
-
-    //! @brief Callback for odom in geo frame
-    //! @param[in] msg The odometry message to process
-    //!
-    void geoOdomCallback(const nav_msgs::OdometryConstPtr& msg);
+    void gpsFixCallback(const gps_common::GPSFixConstPtr& msg);
 
     //! @brief Sends transform
     void broadcastTf(void);
