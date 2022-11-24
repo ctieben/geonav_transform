@@ -9,7 +9,7 @@
 
 	<node pkg="geonav_transform" type="geonav_transform_node" name="geonav_transform_node" clear_params="true" output="screen">
 		<rosparam param="datum" subst_value="True">$(arg datum)</rosparam>
-		<remap from="/GPSFix" to="/gps/fix"/>
+		<remap from="/GPSFix" to="/gps/gps_fix"/>
 	</node>
   
 </launch>
